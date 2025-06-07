@@ -60,8 +60,20 @@ class User extends Authenticatable
         return $this->role === Role::USER;
     }
 
+    //--- Relationships
+
     public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function wishlist(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Wishlist::class);
     }
 }
